@@ -79,6 +79,19 @@ h2 {
     font-size: 16px; /* Sesuaikan ukuran font jika diperlukan */
 }
 
+.hidden {
+    display: none;
+}
+.add-to-cart {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
 .quantity-controls {
     display: flex;
     justify-content: center;

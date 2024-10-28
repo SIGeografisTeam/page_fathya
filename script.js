@@ -72,11 +72,16 @@ function renderMenu(menuItems) {
         menuItem.innerHTML = `
             <img src="./menu/${item.image}" alt="${item.name}" class="menu-image">
             <div class="menu-footer">
-            <h3>${item.name}</h3>
+                <h3>${item.name}</h3>   
                 <p class="price">Rp ${item.price.toLocaleString()}</p>
-                <div class="quantity-controls">
+                
+                <!-- Tombol Tambah Ke Pesanan -->
+                <button id="add-to-cart-${item.id}" class="add-to-cart" onclick="showQuantityControls(${item.id})">Tambah Ke Pesanan</button>
+
+                <!-- Kontrol Kuantitas, tersembunyi pada awalnya -->
+                <div id="quantity-controls-${item.id}" class="quantity-controls hidden">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1)">-</button>
-                    <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
+                    <input type="number" id="qty${item.id}" name="qty${item.id}" value="1" min="1" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1)">+</button>
                 </div>
             </div>
@@ -84,6 +89,13 @@ function renderMenu(menuItems) {
         menuGrid.appendChild(menuItem);
     });
 }
+
+// Fungsi untuk menampilkan kontrol kuantitas dan menyembunyikan tombol "Tambah Ke Pesanan"
+function showQuantityControls(itemId) {
+    document.getElementById(`add-to-cart-${itemId}`).classList.add("hidden"); // Sembunyikan tombol Tambah Ke Pesanan
+    document.getElementById(`quantity-controls-${itemId}`).classList.remove("hidden"); // Tampilkan kontrol kuantitas
+}
+
 
 
 //function changeQuantity(id, price, delta) {
