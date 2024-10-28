@@ -1,77 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pasakan Ambu</title>
-    <link rel="stylesheet" href="styles.css">
-    
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css" />
+
     <!-- Favicon -->
-    <link rel="icon" href="./bg/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./bg/favicon.ico" type="image/x-icon" />
 
     <!-- Meta Tags for Open Graph -->
     <meta property="og:title" content="Pasakan Ambu" />
-    <meta property="og:description" content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!" />
+    <meta
+      property="og:description"
+      content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!"
+    />
     <meta property="og:image" content="./bg/gambar.jpg" />
     <meta property="og:url" content="./page" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Pasakan Ambu" />
 
     <!-- Meta Tags for Twitter (Optional) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Pasakan Ambu">
-    <meta name="twitter:description" content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!">
-    <meta name="twitter:image" content="./page/bg/gambar.jpg">
-</head>
-<body>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pasakan Ambu" />
+    <meta
+      name="twitter:description"
+      content="Nikmati berbagai pilihan menu makanan lezat di Pasakan Ambu. Mulai dari Jengkol Rendang, Babat Serundeng, dan masih banyak lagi!"
+    />
+    <meta name="twitter:image" content="./page/bg/gambar.jpg" />
+
+    <!-- google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header class="header">
-        <img src="./bg/banner.jpg" alt="Banner" class="banner-image">
+      <img src="./bg/banner.jpg" alt="Banner" class="banner-image" />
     </header>
     <main class="main-container">
-        <h2>Form Pemesanan</h2>
-        <div id="menuGrid" class="menu-grid">
-            <!-- Elemen menu akan diisi oleh JavaScript -->
-        </div>        
-        <div class="total-container">
-            <h2>Total: Rp <span id="totalPrice">0</span></h2>
-            <div class="payment-method">
-                <label for="paymentMethod">Pilih Metode Pembayaran:</label>
-                <select id="paymentMethod" name="paymentMethod">
-                    <option value="Transfer">Transfer</option>
-                    <option value="COD">COD</option>
-                </select>
-            </div>
-            <h3>Pesanan Anda:</h3>
-            <ul id="orderList"></ul>
-            <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank">Kirim Pesanan via WhatsApp</a>
+      <h2>Form Pemesanan</h2>
+      <div id="menuGrid" class="menu-grid">
+        <!-- Elemen menu akan diisi oleh JavaScript -->
+      </div>
+      <div class="total-container">
+        <h2>Total: Rp <span id="totalPrice">0</span></h2>
+        <div class="payment-method">
+          <label for="paymentMethod">Pilih Metode Pembayaran:</label>
+          <select id="paymentMethod" name="paymentMethod">
+            <option value="Transfer">Transfer</option>
+            <option value="COD">COD</option>
+          </select>
         </div>
+        <h3>Pesanan Anda:</h3>
+        <ul id="orderList"></ul>
+        <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank"
+          >Kirim Pesanan via WhatsApp</a
+        >
+      </div>
     </main>
 
     <!-- Modal untuk input nama, nomor WhatsApp, dan alamat -->
     <div id="userModal" class="modal">
-        <div class="modal-content">
-            <h2>Masukkan Informasi Anda</h2>
-            <label for="name">Nama:</label>
-            <input type="text" id="name" placeholder="Masukkan nama Anda">
-            <label for="whatsapp">Nomor WhatsApp:</label>
-            <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp">
-            <label for="address">Alamat:</label>
-            <input type="text" id="address" placeholder="Masukkan alamat Anda">
-            <button id="buttonsimpaninfouser">Simpan</button>
-        </div>
+      <div class="modal-content">
+        <h2>Masukkan Informasi Anda</h2>
+        <label for="name">Nama:</label>
+        <input type="text" id="name" placeholder="Masukkan nama Anda" />
+        <label for="whatsapp">Nomor WhatsApp:</label>
+        <input
+          type="text"
+          id="whatsapp"
+          placeholder="Masukkan nomor WhatsApp"
+        />
+        <label for="address">Alamat:</label>
+        <input type="text" id="address" placeholder="Masukkan alamat Anda" />
+        <button id="buttonsimpaninfouser">Simpan</button>
+      </div>
     </div>
 
     <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="footer-logo-icon">jual.in.my.id</div>
-            </div>
-            <p>Disediakan oleh Platform Jualin</p>
-            <p>Isi Menu dan harga merupakan tangung jawab tenant | <a href="#">Laporkan Penyalahgunaan</a></p>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">jual.in.my.id</div>
         </div>
+        <p>Disediakan oleh Platform Jualin</p>
+        <p>
+          Isi Menu dan harga merupakan tangung jawab tenant |
+          <a href="#">Laporkan Penyalahgunaan</a>
+        </p>
+      </div>
     </footer>
-    
 
     <script src="script.js" type="module"></script>
-</body>
+  </body>
 </html>

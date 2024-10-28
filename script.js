@@ -70,9 +70,9 @@ function renderMenu(menuItems) {
         const menuItem = document.createElement('div');
         menuItem.className = 'menu-item';
         menuItem.innerHTML = `
-            <h3>${item.name}</h3>
             <img src="./menu/${item.image}" alt="${item.name}" class="menu-image">
             <div class="menu-footer">
+            <h3>${item.name}</h3>
                 <p class="price">Rp ${item.price.toLocaleString()}</p>
                 <div class="quantity-controls">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1)">-</button>
