@@ -96,8 +96,8 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20;
 }
-
 
 .qty-btn {
     background-color: #ddd;

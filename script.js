@@ -74,8 +74,11 @@ function renderMenu(menuItems) {
             <div class="menu-footer">
                 <h3>${item.name}</h3>
                 <p class="price">Rp ${item.price.toLocaleString()}</p>
+                
+                <!-- Hanya tampilkan tombol "Tambah Ke Pesanan" awalnya -->
                 <button id="add-to-cart-${item.id}" class="add-to-cart" onclick="showQuantityControls(${item.id})">Tambah Ke Pesanan</button>
                 
+                <!-- Kontrol kuantitas disembunyikan dengan kelas "hidden" -->
                 <div id="quantity-controls-${item.id}" class="quantity-controls hidden">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1, ${item.id})">-</button>
                     <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
@@ -87,6 +90,7 @@ function renderMenu(menuItems) {
     });
 }
 
+
 // Fungsi untuk menampilkan kontrol kuantitas dan menyembunyikan tombol "Tambah Ke Pesanan"
 function showQuantityControls(itemId) {
     // Sembunyikan tombol "Tambah Ke Pesanan"
@@ -94,13 +98,13 @@ function showQuantityControls(itemId) {
     
     // Tampilkan kontrol kuantitas dan set jumlah awal ke 1
     const quantityControls = document.getElementById(`quantity-controls-${itemId}`);
-    quantityControls.classList.remove("hidden");
+    quantityControls.style.visibility = "visible";
     document.getElementById(`qty${itemId}`).value = 1;
 
     calculateTotal(); // Update total dengan jumlah awal 1
 }
 
-window.showQuantityControls = showQuantityControls; // Jadikan global
+window.showQuantityControls = showQuantityControls; 
 
 // Fungsi untuk mengubah jumlah kuantitas dan menampilkan atau menyembunyikan kontrol kuantitas
 window.changeQuantity = function(id, price, delta, itemId) {
@@ -113,7 +117,7 @@ window.changeQuantity = function(id, price, delta, itemId) {
         qtyInput.value = newQuantity;
     } else {
         qtyInput.value = 0;
-        document.getElementById(`quantity-controls-${itemId}`).classList.add("hidden"); // Sembunyikan kontrol kuantitas
+        document.getElementById(`quantity-controls-${itemId}`).style.visibility = "hidden";
         document.getElementById(`add-to-cart-${itemId}`).classList.remove("hidden"); // Tampilkan kembali tombol "Tambah Ke Pesanan"
     }
 
@@ -156,8 +160,6 @@ function calculateTotal() {
     const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${rek}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
     whatsappLink.href = `https://wa.me/628111269691?text=${encodeURIComponent(message)}`;
 }
-
-
 
 document.getElementById('whatsappLink').addEventListener('click', function(event) {
     event.preventDefault();
