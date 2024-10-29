@@ -98,8 +98,7 @@ h2 {
 }
 
 .quantity-controls {
-    display: flex;
-    visibility: hidden;
+    display: none;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;

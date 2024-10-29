@@ -75,7 +75,7 @@ function renderMenu(menuItems) {
                 <h3>${item.name}</h3>
                 <p class="price">Rp ${item.price.toLocaleString()}</p>
                 <button id="add-to-cart-${item.id}" class="add-to-cart" onclick="showQuantityControls(${item.id})">Tambah Ke Pesanan</button>
-                <div id="quantity-controls-${item.id}" class="quantity-controls">
+                <div id="quantity-controls-${item.id}" class="quantity-controls hidden">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1, ${item.id})">-</button>
                     <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1, ${item.id})">+</button>
@@ -94,7 +94,8 @@ function showQuantityControls(itemId) {
     
     // Tampilkan kontrol kuantitas dan set jumlah awal ke 1
     const quantityControls = document.getElementById(`quantity-controls-${itemId}`);
-    quantityControls.style.visibility = "visible";
+    // quantityControls.style.visibility = "visible";
+    quantityControls.style.display = "flex";
     document.getElementById(`qty${itemId}`).value = 1;
 
     calculateTotal(); // Update total dengan jumlah awal 1
@@ -113,7 +114,8 @@ window.changeQuantity = function(id, price, delta, itemId) {
         qtyInput.value = newQuantity;
     } else {
         qtyInput.value = 0;
-        document.getElementById(`quantity-controls-${itemId}`).style.visibility = "hidden";
+        // document.getElementById(`quantity-controls-${itemId}`).style.visibility = "hidden";
+        document.getElementById(`quantity-controls-${itemId}`).style.display = "none";
         document.getElementById(`add-to-cart-${itemId}`).classList.remove("hidden"); // Tampilkan kembali tombol "Tambah Ke Pesanan"
     }
 
