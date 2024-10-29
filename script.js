@@ -74,12 +74,8 @@ function renderMenu(menuItems) {
             <div class="menu-footer">
                 <h3>${item.name}</h3>
                 <p class="price">Rp ${item.price.toLocaleString()}</p>
-                
-                <!-- Hanya tampilkan tombol "Tambah Ke Pesanan" awalnya -->
                 <button id="add-to-cart-${item.id}" class="add-to-cart" onclick="showQuantityControls(${item.id})">Tambah Ke Pesanan</button>
-                
-                <!-- Kontrol kuantitas disembunyikan dengan kelas "hidden" -->
-                <div id="quantity-controls-${item.id}" class="quantity-controls hidden">
+                <div id="quantity-controls-${item.id}" class="quantity-controls">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, -1, ${item.id})">-</button>
                     <input type="number" id="qty${item.id}" name="qty${item.id}" value="0" min="0" data-price="${item.price}" data-name="${item.name}" onchange="calculateTotal()">
                     <button type="button" class="qty-btn" onclick="changeQuantity('qty${item.id}', ${item.price}, 1, ${item.id})">+</button>
