@@ -63,18 +63,30 @@ h2 {
 }
 
 .menu-image {
-    border-radius: 10px;
+    border-top-left-radius: 10px; /* Sesuaikan nilai sesuai kebutuhan */
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .menu-footer {
     display: flex;
-    flex-direction: column; /* Ubah tata letak menjadi kolom */
-    align-items: center; /* Atur agar konten berada di tengah */
-    /* justify-content: center; */
+    flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: center;
 }
 
-.menu-footer .h2 {
-    margin-bottom: 15px;
+.menu-footer .add-to-cart {
+    align-items: center;
+}
+
+.menu-footer .qty-btn {
+    align-items: center;
+}
+
+
+.menu-footer .h3 {
+    margin-bottom: 10px;
 }
 .price {
     margin-bottom: 10px 0; /* Beri jarak antara harga dan kuantitas */
@@ -88,7 +100,7 @@ h2 {
     background-color: #ff6600;
     color: #fff;
     border: none;
-    padding: 8px 16px;
+    padding: 8px 10px;
     cursor: pointer;
     border-radius: 4px;
     justify-content: center;
