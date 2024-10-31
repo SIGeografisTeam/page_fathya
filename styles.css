@@ -179,6 +179,29 @@ h2 {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek visual */
     border-radius: 10px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
 }
+
+.receipt-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 2px solid #f4f4f4;
+    margin-bottom: 10px;
+}
+
+.menu-column {
+    flex:5;
+    text-align: left;
+}
+
+.quantity-column {
+    flex:1.5;
+    text-align:center;
+}
+
+.price-column {
+    flex:3;
+    text-align:right;
+}
 .total-container {
     text-align: center;
     margin-top: 40px;
@@ -195,10 +218,25 @@ h2 {
 }
 
 #orderList li {
-    list-style-type: none;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eaeaea;
 }
 
+.orderList li > span {
+    flex-basis:48%;
+}
+
+.orderList .quantity {
+    text-align: center;
+    flex-basis: 15%;
+}
+
+.orderList .price {
+    text-align:right;
+    flex-basis: 30%;
+}
 .whatsapp-button {
     display: inline-block;
     padding: 10px 20px;

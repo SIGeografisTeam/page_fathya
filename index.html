@@ -55,6 +55,13 @@
     <aside class="receipt-container">
       <!-- konten kanan: receipt -->
       <div class="total-container">
+        <h2>Pesanan Anda</h2>
+        <div class="receipt-header">
+          <h3 class="menu-column">Menu</h3>
+          <h3 class="quantity-column">Jumlah</h3>
+          <h3 class="price-column">Harga</h3>
+      </div>
+        <ul id="orderList"></ul>
         <h2>Total: Rp <span id="totalPrice">0</span></h2>
         <div class="payment-method">
           <label for="paymentMethod">Pilih Metode Pembayaran:</label>
@@ -63,8 +70,8 @@
             <option value="COD">COD</option>
           </select>
         </div>
-        <h3>Pesanan Anda:</h3>
-        <ul id="orderList"></ul>
+        
+        
         <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank"
           >Kirim Pesanan via WhatsApp</a
         >
