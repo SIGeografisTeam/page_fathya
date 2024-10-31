@@ -604,18 +604,24 @@ h2 {
         margin: 0 5px;
         height: 25px;
     }
-}
 
-/* Layout total pembelian di bagian bawah */
-.total-summary {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #ffffff;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin-top: 10px;
-}
+    /* Layout total pembelian di bagian bawah */
+    .total-summary {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 10; /* Pastikan berada di atas elemen lain */
+    }
+
+    .main-container {
+        padding-bottom: 60px; /* Tambahkan padding agar konten tidak tertutup total-summary */
+    }
 
 .total-summary .total-items {
     font-weight: bold;
@@ -627,3 +633,6 @@ h2 {
     font-size: 16px;
     color: #d9534f;
 }
+
+}
+

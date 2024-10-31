@@ -125,62 +125,50 @@ window.changeQuantity = function(id, price, delta, itemId) {
 function calculateTotal() {
     const inputs = document.querySelectorAll('input[type="number"]');
     let total = 0;
+    let totalItems = 0; // Tambahkan variabel totalItems untuk menghitung jumlah barang
     const orderList = document.getElementById('orderList');
     orderList.innerHTML = '';
   
     inputs.forEach(input => {
-      const quantity = parseInt(input.value);
-      const price = parseInt(input.getAttribute('data-price'));
-      const name = input.getAttribute('data-name');
-      
-      if (quantity > 0) {
-        total += quantity * price;
-  
-        const menuItem = document.createElement('div');
-        menuItem.classList.add('order-item');
+        const quantity = parseInt(input.value);
+        const price = parseInt(input.getAttribute('data-price'));
+        const name = input.getAttribute('data-name');
         
-        const menuName = document.createElement('div');
-        menuName.classList.add('order-menu');
-        menuName.innerText = name;
-  
-        const menuQuantity = document.createElement('div');
-        menuQuantity.classList.add('order-quantity');
-        menuQuantity.innerText = `x${quantity}`;
-  
-        const menuPrice = document.createElement('div');
-        menuPrice.classList.add('order-price');
-        menuPrice.innerText = `Rp ${(quantity * price).toLocaleString()}`;
-  
-        menuItem.append(menuName, menuQuantity, menuPrice);
-        orderList.appendChild(menuItem);
-      }
+        if (quantity > 0) {
+            total += quantity * price;
+            totalItems += quantity; // Hitung total barang
+
+            const menuItem = document.createElement('div');
+            menuItem.classList.add('order-item');
+            
+            const menuName = document.createElement('div');
+            menuName.classList.add('order-menu');
+            menuName.innerText = name;
+      
+            const menuQuantity = document.createElement('div');
+            menuQuantity.classList.add('order-quantity');
+            menuQuantity.innerText = `x${quantity}`;
+      
+            const menuPrice = document.createElement('div');
+            menuPrice.classList.add('order-price');
+            menuPrice.innerText = `Rp ${(quantity * price).toLocaleString()}`;
+      
+            menuItem.append(menuName, menuQuantity, menuPrice);
+            orderList.appendChild(menuItem);
+        }
     });
   
     document.getElementById('totalPrice').innerText = total.toLocaleString();
-  
+    document.getElementById('totalItems').innerText = totalItems; // Update total barang di total-summary
+    document.querySelector('.total-summary .total-price span').innerText = total.toLocaleString(); // Update total harga di total-summary
 
+  
     // Update WhatsApp link
     const whatsappLink = document.getElementById('whatsappLink');
     const message = `Saya ingin memesan:\n${orders.join('\n')}\n\nTotal: Rp ${total.toLocaleString()}\n\n${rek}\n\nNama: ${userName}\nNomor WhatsApp: ${userWhatsapp}\nAlamat: ${userAddress}`;
     whatsappLink.href = `https://wa.me/628111269691?text=${encodeURIComponent(message)}`;
 }
 
-// Contoh JavaScript untuk memperbarui total
-function updateTotal() {
-    let totalItems = 0;
-    let totalAmount = 0;
-    const items = document.querySelectorAll('.quantity-controls input');
-
-    items.forEach(item => {
-        const quantity = parseInt(item.value, 10) || 0;
-        const price = parseInt(item.dataset.price, 10) || 0;
-        totalItems += quantity;
-        totalAmount += quantity * price;
-    });
-
-    document.getElementById('totalItems').textContent = totalItems;
-    document.getElementById('totalAmount').textContent = totalAmount.toLocaleString();
-}
 
 // Panggil updateTotal setiap kali quantity berubah
 document.querySelectorAll('.quantity-controls input').forEach(input => {
