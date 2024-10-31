@@ -48,37 +48,30 @@ h1, h2, h3, .judul { /* Untuk judul */
 input {
     width: 100%;
     padding: 10px;
-    border: 2px solid #84b8c6;
+    border: 2px solid;
     border-radius: 5px;
     font-size: 16px;
     background-color: transparent;
     outline: none;
     transition: all 0.3s ease;
-    color: #033043;
 }
 
 .input-group label {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 10px;
-    transform: translateY(-50%);
+    transform: translateY(-10%);
     background-color: #fff;
-
     transition: all 0.3s ease;
     pointer-events: none;
-    color: #033043;
     font-size: 16px;
-}
-
-input:focus {
-    border-color: #033043;
 }
 
 input:focus + label,
 input:valid + label {
     top: 0;
     font-size: 16px;
-    color: #84b8c6;
+    color: #ff6600;
 }
 
 
@@ -125,7 +118,7 @@ input:valid + label {
 /* Efek pada input yang telah diisi */
 .modal-content input[type="text"]:valid {
     border-color: #ff6600; /* Warna border saat terisi */
-    background-color: #f9f3e9; /* Warna latar belakang saat terisi */
+    background-color: #fff; /* Warna latar belakang saat terisi */
     transform: scale(1.02); /* Sedikit memperbesar saat terisi */
 }
 
