@@ -518,3 +518,64 @@ h2 {
     color: #d9534f;
     border-bottom: 1px solid #d9534f;
 }
+
+
+/* Media query untuk layar dengan lebar maksimum 600px (ponsel) */
+@media only screen and (max-width: 600px) {
+    /* Mengatur ukuran header dan font lebih kecil */
+    
+    .menu-grid {
+        grid-template-columns: 1fr; /* Tampilan satu kolom untuk menu item */
+    }
+
+    .menu-item {
+        padding: 10px;
+    }
+
+    .menu-image {
+        height: auto;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* Penyesuaian untuk tombol dan input */
+    .add-to-cart,
+    .qty-btn,
+    .quantity-controls input[type="number"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    /* Penyesuaian untuk modal */
+    .modal-content {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* Penyesuaian grid pesanan */
+    .order-grid {
+        grid-template-columns: 50% 25% 25%;
+    }
+
+    /* Penyesuaian total container */
+    .total-container h2 {
+        font-size: 1.2em;
+    }
+
+    .payment-method select {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+
+    .whatsapp-button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    /* Penyesuaian padding dan margin */
+    .container-wrapper,
+    .main-container,
+    .total-container {
+        padding: 10px;
+    }
+}
