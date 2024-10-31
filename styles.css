@@ -520,62 +520,65 @@ h2 {
 }
 
 
-/* Media query untuk layar dengan lebar maksimum 600px (ponsel) */
+/* Responsif tampilan .menu-item */
 @media only screen and (max-width: 600px) {
-    /* Mengatur ukuran header dan font lebih kecil */
-    
     .menu-grid {
-        grid-template-columns: 1fr; /* Tampilan satu kolom untuk menu item */
+        grid-template-columns: 1fr; /* Satu kolom di ponsel */
     }
 
     .menu-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         padding: 10px;
+        gap: 10px;
     }
 
     .menu-image {
-        height: auto;
-        width: 100%;
+        width: 80px;
+        height: 80px;
         border-radius: 10px;
+        flex-shrink: 0;
     }
 
-    /* Penyesuaian untuk tombol dan input */
-    .add-to-cart,
-    .qty-btn,
-    .quantity-controls input[type="number"] {
+    .menu-footer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-footer h3, 
+    .menu-footer .price {
+        margin: 2px 0;
         font-size: 14px;
-        padding: 8px;
     }
 
-    /* Penyesuaian untuk modal */
-    .modal-content {
-        width: 90%;
-        max-width: 350px;
+    .add-to-cart, .quantity-controls {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
     }
+}
 
-    /* Penyesuaian grid pesanan */
-    .order-grid {
-        grid-template-columns: 50% 25% 25%;
-    }
+/* Layout total pembelian di bagian bawah */
+.total-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-top: 10px;
+}
 
-    /* Penyesuaian total container */
-    .total-container h2 {
-        font-size: 1.2em;
-    }
+.total-summary .total-items {
+    font-weight: bold;
+    font-size: 16px;
+}
 
-    .payment-method select {
-        font-size: 0.9em;
-        padding: 5px;
-    }
-
-    .whatsapp-button {
-        font-size: 0.9em;
-        padding: 8px;
-    }
-
-    /* Penyesuaian padding dan margin */
-    .container-wrapper,
-    .main-container,
-    .total-container {
-        padding: 10px;
-    }
+.total-summary .total-price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #d9534f;
 }

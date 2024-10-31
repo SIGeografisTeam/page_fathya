@@ -165,6 +165,29 @@ function calculateTotal() {
     whatsappLink.href = `https://wa.me/628111269691?text=${encodeURIComponent(message)}`;
 }
 
+// Contoh JavaScript untuk memperbarui total
+function updateTotal() {
+    let totalItems = 0;
+    let totalAmount = 0;
+    const items = document.querySelectorAll('.quantity-controls input');
+
+    items.forEach(item => {
+        const quantity = parseInt(item.value, 10) || 0;
+        const price = parseInt(item.dataset.price, 10) || 0;
+        totalItems += quantity;
+        totalAmount += quantity * price;
+    });
+
+    document.getElementById('totalItems').textContent = totalItems;
+    document.getElementById('totalAmount').textContent = totalAmount.toLocaleString();
+}
+
+// Panggil updateTotal setiap kali quantity berubah
+document.querySelectorAll('.quantity-controls input').forEach(input => {
+    input.addEventListener('change', updateTotal);
+});
+
+
 document.getElementById('whatsappLink').addEventListener('click', function(event) {
     event.preventDefault();
 
