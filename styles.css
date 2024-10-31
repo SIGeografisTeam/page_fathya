@@ -70,7 +70,7 @@ h2 {
 }
 
 .menu-item {
-    background-color: #f9f9f9;
+    background-color: white;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -148,6 +148,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius:5px;
 }
 
 .qty-btn:hover {
@@ -169,7 +170,8 @@ h2 {
     -webkit-appearance: none;
     margin: 0;
 }
-.receipt-container {
+
+.total-container {
     flex: 1;
     width: 100%;
     max-width: 1200px;
@@ -178,14 +180,13 @@ h2 {
     margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek visual */
     border-radius: 10px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
+    text-align: center;
 }
 
-.receipt-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 2px solid #f4f4f4;
-    margin-bottom: 10px;
+.total-container h2 {
+    color: #d9534f;
+    font-size: 1.5em;
+    margin:0;
 }
 
 .order-grid {
@@ -194,33 +195,28 @@ h2 {
     text-align: center;
     gap: 10px;
     margin-bottom: 20px;
+    border-top: 2px dotted #ddd;
+    border-bottom: 1px dotted #ddd;
 }
 
 .order-grid .menu-column {
     text-align:left;
 }
 
-.total-container {
-    text-align: center;
-    margin-top: 40px;
-}
 
-.total-container h2 {
-    color: #d9534f;
-    font-size: 1.5em;
-}
 
 #orderList {
     display: contents;
     padding: 0 20px; 
     margin-top: 20px;
+    
 }
 
 #orderList li {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px solid #eaeaea;
+    
 }
 
 #orderList .order-item {
@@ -234,6 +230,43 @@ h2 {
 #orderList .order-quantity,
 #orderList .order-price {
     text-align: center;
+}
+
+.totalPayment {
+    display: flex;
+    justify-content: space-between; /* Menempatkan teks total di kiri dan angka di kanan */
+    align-items: center;
+    margin-top: 5px;
+}
+
+.payment-method {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd; /* Garis di atas payment-method */
+}
+
+.payment-method label {
+    font-weight: bold;
+    color: #555;
+    flex: 1;
+}
+
+.payment-method select {
+    padding: 8px;
+    border: 2px solid #ff6600;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: #f8f8f8;
+    color: #333;
+    flex: 1;
+    text-align-last: right; /* Menjaga opsi tetap rapi di kanan */
+}
+
+/* Hover effect for the dropdown */
+.payment-method select:hover {
+    border-color: #e65a00;
 }
 
 .whatsapp-button {

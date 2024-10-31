@@ -43,16 +43,14 @@
       <img src="./bg/banner.jpg" alt="Banner" class="banner-image" />
     </header>
     <div class="container-wrapper">
-
-    <main class="main-container">
-      <h2>Form Pemesanan</h2>
+      <main class="main-container">
+        <h2>Form Pemesanan</h2>
         <!-- konten kiri: form pesanan -->
         <div id="menuGrid" class="menu-grid">
           <!-- Elemen menu akan diisi oleh JavaScript -->
         </div>
-    </main>
+      </main>
 
-    <aside class="receipt-container">
       <!-- konten kanan: receipt -->
       <div class="total-container">
         <h2>Pesanan Anda</h2>
@@ -62,22 +60,24 @@
           <h3>Harga</h3>
           <div id="orderList"></div>
         </div>
-        <h2>Total: Rp <span id="totalPrice">0</span></h2>
-        <div class="payment-method">
-          <label for="paymentMethod">Pilih Metode Pembayaran:</label>
-          <select id="paymentMethod" name="paymentMethod">
-            <option value="Transfer">Transfer</option>
-            <option value="COD">COD</option>
-          </select>
+        <div class="totalPayment">
+          <h2>Total</h2>
+          <h2>Rp <span id="totalPrice">0</span></h2>
         </div>
+          <div class="payment-method">
+            <label for="paymentMethod">Pilih Metode Pembayaran:</label>
+            <select id="paymentMethod" name="paymentMethod">
+              <option value="Transfer">Transfer</option>
+              <option value="COD">COD</option>
+            </select>
+          </div>
         
-        
+
         <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank"
           >Kirim Pesanan via WhatsApp</a
         >
       </div>
-    </aside>
-  </div>
+    </div>
 
     <!-- Modal untuk input nama, nomor WhatsApp, dan alamat -->
     <div id="userModal" class="modal">
