@@ -30,6 +30,8 @@ h1, h2, h3, .judul { /* Untuk judul */
 .main-container {
     width: 100%;
     max-width: 1200px;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
     padding: 20px;
     background-color: #ffffff;
     margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
@@ -47,9 +49,9 @@ h2 {
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px 10px; /* Mengatur gap antara baris dan kolom */
+    gap: 20px;
     margin-bottom: 20px;
-}
+    }
 
 .menu-item {
     background-color: #f9f9f9;
@@ -153,9 +155,17 @@ h2 {
 }
 
 .total-container {
-    text-align: center;
-    margin-top: 40px;
-}
+    position: sticky;
+    top: 20px; /* Agar tetap berada di posisi saat halaman digulir */
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
 
 .total-container h2 {
     color: #d9534f;
@@ -171,7 +181,14 @@ h2 {
     list-style-type: none;
     margin-bottom: 10px;
 }
-
+.order-empty-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    font-size: 1.2em;
+}
 .whatsapp-button {
     display: inline-block;
     padding: 10px 20px;
