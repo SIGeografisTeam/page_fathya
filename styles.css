@@ -27,11 +27,21 @@ h1, h2, h3, .judul { /* Untuk judul */
     border-radius: 20px; /* Membuat sisi banner membulat */
 }
 
+.container-wrapper {
+    display: flex;
+    gap: 20px;
+    max-width: 1600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 .main-container {
+    flex: 3;
     width: 100%;
     max-width: 1200px;
-    grid-template-columns: 1fr 300px;
-    gap: 20px;
     padding: 20px;
     background-color: #ffffff;
     margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
@@ -39,9 +49,11 @@ h1, h2, h3, .judul { /* Untuk judul */
     border-radius: 10px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 300px;
+.main-container, .receipt-container {
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 h2 {
@@ -53,9 +65,9 @@ h2 {
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 20px 10px; /* Mengatur gap antara baris dan kolom */
     margin-bottom: 20px;
-    }
+}
 
 .menu-item {
     background-color: #f9f9f9;
@@ -157,19 +169,20 @@ h2 {
     -webkit-appearance: none;
     margin: 0;
 }
-
+.receipt-container {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 20px auto; /* Menggunakan margin auto untuk membuat elemen di tengah */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek visual */
+    border-radius: 10px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
+}
 .total-container {
-    position: sticky;
-    top: 20px; /* Agar tetap berada di posisi saat halaman digulir */
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
+    text-align: center;
+    margin-top: 40px;
+}
 
 .total-container h2 {
     color: #d9534f;
@@ -185,14 +198,7 @@ h2 {
     list-style-type: none;
     margin-bottom: 10px;
 }
-.order-empty-message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: #999;
-    font-size: 1.2em;
-}
+
 .whatsapp-button {
     display: inline-block;
     padding: 10px 20px;
