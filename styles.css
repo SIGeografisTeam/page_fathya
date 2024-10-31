@@ -189,21 +189,24 @@ h2 {
     margin:0;
 }
 
+.total-container .title {
+    padding: 10px 0;
+    border-bottom: 1px dotted #ddd;
+}
+
 .order-grid {
     display: grid;
     grid-template-columns: 50% 20% 30%;
     text-align: center;
     gap: 10px;
-    margin-bottom: 20px;
-    border-top: 2px dotted #ddd;
+    margin-bottom: 10px;
+    padding: 10px 0;
     border-bottom: 1px dotted #ddd;
 }
 
 .order-grid .menu-column {
     text-align:left;
 }
-
-
 
 #orderList {
     display: contents;
@@ -236,21 +239,25 @@ h2 {
     display: flex;
     justify-content: space-between; /* Menempatkan teks total di kiri dan angka di kanan */
     align-items: center;
-    margin-top: 5px;
+    padding: 10px 0;
+    margin-bottom: 5px;
 }
 
 .payment-method {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-bottom: 10px;
     border-bottom: 1px solid #ddd; /* Garis di atas payment-method */
+    padding-bottom: 20px;
 }
 
 .payment-method label {
     font-weight: bold;
     color: #555;
     flex: 1;
+    text-align: left;
+    white-space: nowrap;
 }
 
 .payment-method select {
@@ -258,15 +265,24 @@ h2 {
     border: 2px solid #ff6600;
     border-radius: 10px;
     font-size: 1em;
-    background-color: #f8f8f8;
-    color: #333;
-    flex: 1;
-    text-align-last: right; /* Menjaga opsi tetap rapi di kanan */
+    background-color: white;
+    color: #ff6600;
+    width: auto; /* Width adapts to content */
+    text-align-last: left;
+    min-width: 80px;
 }
 
-/* Hover effect for the dropdown */
-.payment-method select:hover {
-    border-color: #e65a00;
+/* Style untuk opsi dalam dropdown */
+.payment-method select option {
+    background-color: white; /* Latar belakang putih untuk opsi */
+    color: #ff6600; /* Teks berwarna oren untuk opsi */
+    border-radius: 5px;
+}
+
+/* Hover style untuk opsi dalam dropdown */
+.payment-method select:hover option {
+    background-color: #ff6600; /* Latar belakang opsi saat hover */
+    color: white; /* Teks berwarna putih saat hover */
 }
 
 .whatsapp-button {
@@ -277,6 +293,7 @@ h2 {
     text-decoration: none;
     border-radius: 5px;
     font-size: 1em;
+    margin-top:10px;
 }
 
 .whatsapp-button:hover {
