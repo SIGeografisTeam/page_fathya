@@ -39,6 +39,10 @@ h1, h2, h3, .judul { /* Untuk judul */
     border-radius: 10px; /* Opsional: menambahkan border-radius untuk tampilan lebih lembut */
 }
 
+.container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+}
 
 h2 {
     text-align: center;
