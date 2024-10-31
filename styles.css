@@ -188,20 +188,18 @@ h2 {
     margin-bottom: 10px;
 }
 
-.menu-column {
-    flex:5;
-    text-align: left;
+.order-grid {
+    display: grid;
+    grid-template-columns: 50% 20% 30%;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.quantity-column {
-    flex:1.5;
-    text-align:center;
+.order-grid .menu-column {
+    text-align:left;
 }
 
-.price-column {
-    flex:3;
-    text-align:right;
-}
 .total-container {
     text-align: center;
     margin-top: 40px;
@@ -213,7 +211,8 @@ h2 {
 }
 
 #orderList {
-    padding: 0 20px; /* Menambahkan padding kiri dan kanan */
+    display: contents;
+    padding: 0 20px; 
     margin-top: 20px;
 }
 
@@ -224,19 +223,19 @@ h2 {
     border-bottom: 1px solid #eaeaea;
 }
 
-.orderList li > span {
-    flex-basis:48%;
+#orderList .order-item {
+    display: contents;
 }
-
-.orderList .quantity {
+  
+#orderList .order-menu {
+    text-align: left;
+}
+  
+#orderList .order-quantity,
+#orderList .order-price {
     text-align: center;
-    flex-basis: 15%;
 }
 
-.orderList .price {
-    text-align:right;
-    flex-basis: 30%;
-}
 .whatsapp-button {
     display: inline-block;
     padding: 10px 20px;

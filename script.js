@@ -125,33 +125,39 @@ window.changeQuantity = function(id, price, delta, itemId) {
 function calculateTotal() {
     const inputs = document.querySelectorAll('input[type="number"]');
     let total = 0;
-    let orders = [];
-    const rek = "Pembayaran akan dilakukan dengan transfer ke rekening\nBCA 7750878347\nNedi Sopian";
-    const userName = getCookie("name");
-    const userWhatsapp = getCookie("whatsapp");
-    const userAddress = getCookie("address");
-
-    inputs.forEach(input => {
-        const quantity = parseInt(input.value);
-        const price = parseInt(input.getAttribute('data-price'));
-        const name = input.getAttribute('data-name');
-
-        if (quantity > 0) {
-            total += quantity * price;
-            orders.push(`${name} x${quantity} - Rp ${(quantity * price).toLocaleString()}`);
-        }
-    });
-
-    document.getElementById('totalPrice').innerText = total.toLocaleString();
-
-    // Update the order list
     const orderList = document.getElementById('orderList');
     orderList.innerHTML = '';
-    orders.forEach(order => {
-        const li = document.createElement('li');
-        li.innerText = order;
-        orderList.appendChild(li);
+  
+    inputs.forEach(input => {
+      const quantity = parseInt(input.value);
+      const price = parseInt(input.getAttribute('data-price'));
+      const name = input.getAttribute('data-name');
+      
+      if (quantity > 0) {
+        total += quantity * price;
+  
+        const menuItem = document.createElement('div');
+        menuItem.classList.add('order-item');
+        
+        const menuName = document.createElement('div');
+        menuName.classList.add('order-menu');
+        menuName.innerText = name;
+  
+        const menuQuantity = document.createElement('div');
+        menuQuantity.classList.add('order-quantity');
+        menuQuantity.innerText = `x${quantity}`;
+  
+        const menuPrice = document.createElement('div');
+        menuPrice.classList.add('order-price');
+        menuPrice.innerText = `Rp ${(quantity * price).toLocaleString()}`;
+  
+        menuItem.append(menuName, menuQuantity, menuPrice);
+        orderList.appendChild(menuItem);
+      }
     });
+  
+    document.getElementById('totalPrice').innerText = total.toLocaleString();
+  
 
     // Update WhatsApp link
     const whatsappLink = document.getElementById('whatsappLink');
